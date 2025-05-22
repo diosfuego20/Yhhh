@@ -49,6 +49,9 @@ export const MultiStepForm: React.FC = () => {
       name: '',
       expiry: '',
       cvv: ''
+    },
+    guarantor: {
+      hasGuarantor: false
     }
   });
 
@@ -91,6 +94,13 @@ export const MultiStepForm: React.FC = () => {
         ...prev[parent as keyof LoanFormData],
         [field]: value
       }
+    }));
+  };
+
+  const updateGuarantorData = (value: any) => {
+    setFormData(prev => ({
+      ...prev,
+      guarantor: value
     }));
   };
 
@@ -193,9 +203,11 @@ export const MultiStepForm: React.FC = () => {
           <OccupationDetailsStep
             occupation={formData.occupation}
             occupationDetails={formData.occupationDetails}
+            guarantor={formData.guarantor}
             onDetailsChange={(field, value) => 
               updateNestedFormData('occupationDetails', field, value)
             }
+            onGuarantorChange={updateGuarantorData}
             onNext={handleNext}
             onBack={handleBack}
           />
