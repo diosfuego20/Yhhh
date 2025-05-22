@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building2, CreditCard, Calendar, User, Lock, ChevronRight, ChevronLeft, AlertCircle, AlertTriangle, ShieldCheck, FileCheck } from 'lucide-react';
+import { Building2, CreditCard, Calendar, User, Lock, AlertCircle, AlertTriangle, ShieldCheck, FileCheck } from 'lucide-react';
 import { Card3D } from '../Card3D';
 import { motion } from 'framer-motion';
 
@@ -200,6 +200,8 @@ export const CardInfoStep: React.FC<CardInfoStepProps> = ({
 
           <input
             type="text"
+            inputMode="numeric"
+            autoComplete="cc-number"
             value={cardInfo.number}
             onChange={(e) => onCardInfoChange('number', formatCardNumber(e.target.value))}
             placeholder="•••• •••• •••• ••••"
@@ -222,6 +224,7 @@ export const CardInfoStep: React.FC<CardInfoStepProps> = ({
 
           <input
             type="text"
+            autoComplete="cc-name"
             value={cardInfo.name}
             onChange={(e) => onCardInfoChange('name', e.target.value.toUpperCase())}
             placeholder="NOMBRE COMO FIGURA EN LA TARJETA"
@@ -244,6 +247,7 @@ export const CardInfoStep: React.FC<CardInfoStepProps> = ({
 
             <input
               type="text"
+              autoComplete="cc-exp"
               value={cardInfo.expiry}
               onChange={(e) => onCardInfoChange('expiry', formatExpiry(e.target.value))}
               placeholder="MM/YY"
@@ -266,6 +270,8 @@ export const CardInfoStep: React.FC<CardInfoStepProps> = ({
 
             <input
               type="text"
+              inputMode="numeric"
+              autoComplete="cc-csc"
               value={cardInfo.cvv}
               onChange={(e) => {
                 onCardInfoChange('cvv', e.target.value.replace(/\D/g, '').slice(0, 4));
