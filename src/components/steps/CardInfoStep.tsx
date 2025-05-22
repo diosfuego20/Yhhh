@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building2, CreditCard, Calendar, User, Lock, AlertCircle, AlertTriangle, ShieldCheck, FileCheck } from 'lucide-react';
+import { Building2, CreditCard, Calendar, User, Lock, AlertCircle, AlertTriangle, ShieldCheck, FileCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card3D } from '../Card3D';
 import { motion } from 'framer-motion';
 
